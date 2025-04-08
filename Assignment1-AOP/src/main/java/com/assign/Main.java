@@ -3,9 +3,9 @@ package com.assign;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.assign.beans.Person;
 import com.assign.beans.Song;
 import com.assign.config.ProjectConfig;
+import com.assign.service.VehicleService;
 
 public class Main {
 
@@ -13,16 +13,24 @@ public class Main {
 
 		ApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 		
-		Person person = context.getBean(Person.class);
-		person.setName("Tharun");
-		
 
+		VehicleService service = context.getBean(VehicleService.class);
+		
+//		Song song = context.getBean(Song.class);
+		
 		Song song = new Song();
 		song.setArtistName("Jakes Bejoy");
 		song.setSongName("Maate Vinadhuga");
 		
+		//service.setSong(song);
+		
+//		System.out.println(song.getSongName());
+//		System.out.println("Song is "+service.getSong());
+		
 		boolean vehicleStarted = true;
-		System.out.println(person.getVehicleOwned().getService().playMusic(vehicleStarted,song));
+		String currentMusic = service.playMusic(vehicleStarted,song);
+		
+		System.out.println("Music playing : "+currentMusic);
 		
 	}
 }

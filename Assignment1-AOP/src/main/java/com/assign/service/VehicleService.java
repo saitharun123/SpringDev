@@ -16,14 +16,16 @@ public class VehicleService {
 
 	private Logger logger = Logger.getLogger(VehicleService.class.getName());
 	
-	@Autowired
-	@Qualifier("BoseSpeaker")
 	private Speakers speaker;
 	
-	
+//	private Song song;
+
 	private Tyres tyres;
 
-
+	 @Autowired
+	    public VehicleService(@Qualifier("BoseSpeaker") Speakers speaker) {
+	        this.speaker = speaker;
+	    }
 	public Speakers getSpeaker() {
 		return speaker;
 	}
@@ -36,6 +38,15 @@ public class VehicleService {
 		return tyres;
 	}
 
+//	public Song getSong() {
+//		return song;
+//	}
+//	
+//	@Autowired
+//	public void setSong(Song song) {
+//		this.song = song;
+//	}
+	
 	@Autowired
 	@Qualifier("MichellinTyres")
 	public void setTyres(Tyres tyres) {
@@ -67,13 +78,15 @@ public class VehicleService {
 //		return music;
 //	}
 //	
-	public String playMusic(boolean vehicleStarted, Song song) {
-		String music = null;
+	public String playMusic(boolean vehicleStarted,Song song) {
+		String music=null;
 		if(vehicleStarted) {
 			music = speaker.makeSound(song);
 		}else {
 			logger.log(Level.SEVERE,"Music cannot be played as vehicle has not started!");
 		}
+		System.out.println("Speaker is : "+speaker);
+		System.out.println("Music in playMusic class : "+music);
 		return music;
 	}
 }

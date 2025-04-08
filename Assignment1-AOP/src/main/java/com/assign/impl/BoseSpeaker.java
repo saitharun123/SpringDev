@@ -1,5 +1,6 @@
 package com.assign.impl;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.assign.beans.Song;
@@ -12,7 +13,7 @@ public class BoseSpeaker implements Speakers{
 	private final String speakerName = "Bose";
 	@Override
 	public String makeSound(Song song) {
-		return "Playing "+song.getSongName()+"by "+song.getArtistName()+" with "+speakerName;
+		return "Playing "+song.getSongName()+" by "+song.getArtistName()+" with "+speakerName;
 	}
 	
 	public String getSpeakerName() {

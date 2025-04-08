@@ -1,5 +1,8 @@
 package com.assign.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Song {
 
 	private String songName;
@@ -17,5 +20,10 @@ public class Song {
 	public void setArtistName(String artistName) {
 		this.artistName = artistName;
 	}
+	@Override
+	public String toString() {
+		return "Song [songName=" + songName + ", artistName=" + artistName + "]";
+	}
+	
 	
 }
