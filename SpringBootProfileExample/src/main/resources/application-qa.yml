@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: SpringBootProfileExample
+my:
+  profile:
+    code: Q
+    server: qaserver
+    inuse: true

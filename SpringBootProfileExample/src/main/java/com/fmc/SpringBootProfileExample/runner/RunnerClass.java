@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Profile("qa")
+@Profile("qa")
 @ConfigurationProperties("my.profile")
 public class RunnerClass implements CommandLineRunner {
 
@@ -74,6 +74,6 @@ public class RunnerClass implements CommandLineRunner {
  * 
  * @Profile("qa") will work only when " spring.profiles.active=qa " property exist in application.properties
  * 
- * 
+ * Spring prefers application.properties over application.yml
  */
 }
