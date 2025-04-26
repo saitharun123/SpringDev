@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +29,7 @@ public class Employee {
 	
 	@ManyToOne
 	@JoinColumn(name = "dept_id")
+	@JsonIgnore
 	private Department dept;
 	
 	

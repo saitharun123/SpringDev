@@ -19,6 +19,7 @@ public class LogAspect {
 	private Logger logger = Logger.getLogger(LogAspect.class.getName());
 	private Instant startTime;
 	private Instant endTime;
+	
 	@Around("execution(* com.assign.service.*.*(..))")
 	public Object printLogger(ProceedingJoinPoint joinPoint) throws Throwable {
 		

@@ -16,7 +16,6 @@ import jakarta.transaction.Transactional;
 @Component
 public class AppRunner implements CommandLineRunner {
 
-    private final DepartmentRepository departmentRepository;
 
 	@Autowired
 	private EmployeeService empService;
@@ -30,9 +29,7 @@ public class AppRunner implements CommandLineRunner {
 	@Autowired
 	private ObjectProvider<Department> deptProvider;
 
-    AppRunner(DepartmentRepository departmentRepository) {
-        this.departmentRepository = departmentRepository;
-    }
+   
 	
   
 	@Override
@@ -69,17 +66,23 @@ public class AppRunner implements CommandLineRunner {
 //
 //		deptService.addDepartment(dept3);
 //		
-		empService.addEmployee(emp1);
-		empService.addEmployee(emp2);
+//		empService.addEmployee(emp1);
+//		empService.addEmployee(emp2);
 //		empService.addEmployee(emp3);
 //		empService.addEmployee(emp4);
 		
 		
 //		deptService.deleteDepartmentById(4);
 		
-		empService.printAllEmployees();
-		deptService.printAllDepartments();
+//		empService.printAllEmployees();
+//		deptService.printAllDepartments();
 		
+		//Printing this whole object leads to stack overflow error, store it in a variable and print only required fields instead of whole object
+//		System.out.println(empService.getEmployees());
+		
+		Department dept = deptService.getDepartmentById(2);
+		System.out.println("Department: " + dept.getName());
+		dept.getEmployees().forEach(emp -> System.out.println("Employee: " + emp.getName()));
 	}
 
 }

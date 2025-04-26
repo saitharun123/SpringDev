@@ -22,6 +22,7 @@ public class ProjectConfig {
 	  veh.setModelNo("276");
 	  return veh; 
 	  }
+	  
 	  @Bean
 	  public Song song() {
 		  Song song = new Song();

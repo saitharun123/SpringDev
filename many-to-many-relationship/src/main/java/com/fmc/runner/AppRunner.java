@@ -59,7 +59,7 @@ public class AppRunner implements CommandLineRunner {
 //		cService.addCourses(Arrays.asList(c1,c2,c3));
 //		
 		
-		stuService.deleteStudentById(1);
+//		stuService.deleteStudentById(1);
 		stuService.printAllStudents();
 		
 	}

@@ -22,6 +22,7 @@ public interface StudentRepo extends JpaRepository<Student, Integer>{
 		String getName();
 		String getEmail();
 	}
+	
 	List<StudentDetailsView> findByMarksLessThan(int marks);
 	
 	<T> List<T> findDetailsByName(String name, Class<T> stuClass);

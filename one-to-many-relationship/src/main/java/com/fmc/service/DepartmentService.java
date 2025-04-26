@@ -29,6 +29,7 @@ public class DepartmentService {
 		return "Department deleted";
 	}
 	
+	@Transactional
 	public Department getDepartmentById(int id) {
 		return repo.findById(id).orElse(new Department());
 		
