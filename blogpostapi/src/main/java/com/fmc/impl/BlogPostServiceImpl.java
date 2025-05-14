@@ -23,7 +23,6 @@ public class BlogPostServiceImpl implements BlogPostService{
 
 	private BlogPostRepository blogPostRepo;
 	
-	@Autowired
 	public BlogPostServiceImpl(BlogPostRepository blogPostRepo, CommentRepository commentRepository) {
 		super();
 		this.blogPostRepo = blogPostRepo;

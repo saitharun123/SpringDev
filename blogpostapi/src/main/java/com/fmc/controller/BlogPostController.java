@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fmc.dto.BlogPostDto;
 import com.fmc.service.BlogPostService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/posts")
 public class BlogPostController {
@@ -46,7 +48,7 @@ public class BlogPostController {
 	}
 
 	@PostMapping
-	public ResponseEntity<BlogPostDto> createBlog(@RequestBody BlogPostDto body){
+	public ResponseEntity<BlogPostDto> createBlog(@Valid @RequestBody BlogPostDto body){
 		BlogPostDto blogDto = blogPostService.createBlogPost(body);
 		
 		ResponseEntity<BlogPostDto> response = new ResponseEntity(blogDto,HttpStatus.OK);
@@ -66,7 +68,7 @@ public class BlogPostController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<BlogPostDto> updateBlogPost( @RequestBody BlogPostDto dto){
+	public ResponseEntity<BlogPostDto> updateBlogPost(@Valid @RequestBody BlogPostDto dto){
 		BlogPostDto blog = blogPostService.updateBlogPost(dto);
 		return new ResponseEntity(blog,HttpStatus.OK);
 	}
@@ -76,6 +78,7 @@ public class BlogPostController {
 		blogPostService.deleteBlogPostById(postId);
 		return new ResponseEntity("Deleted Successfully",HttpStatus.NO_CONTENT);
 	}
+	
 	
 }
 
